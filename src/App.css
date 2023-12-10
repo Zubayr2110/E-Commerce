@@ -6,3 +6,11 @@
 a {
     text-decoration: none;
 }
+::-webkit-scrollbar {
+    width: 5px;
+    background: rgb(31, 51, 66);
+}
+::-webkit-scrollbar-thumb {
+    background: cyan; 
+    border-radius: 10px;
+  }

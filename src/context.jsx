@@ -15,18 +15,9 @@ const initialState = {
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
-    const url = `https://fakestoreapi.com/products`
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  const fetchData = async () => {
-    const res = await fetch(url);
-    const data = await res.json();
-    console.log(data);
-  }
-  fetchData()
-
   const clearBasket = () => {
     dispatch({ type: "CLEARBASKET" });
   };

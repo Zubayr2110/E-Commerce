@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import Header from "../../components/Header/Header";
+import { useGlobalContext } from "../../context";
 import { SignUpImg1, SignUpImg2 } from "../../components/export_img";
-
-// Styled Components
+import { useNavigate } from "react-router-dom";
 
 const StyledSignUpContainer = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ const StyledSignUpDiv = styled.div`
   margin: 0 auto;
   margin-top: 80px;
   width: 430px;
-  height: 695px;
+  height: 778px;
   border-radius: 12px;
   padding: 48px 28px;
   background: var(--foundation-white-white-50, #fefefe);
@@ -100,7 +101,7 @@ const StyledSignUpDistingtext = styled.p`
 const StyledSignUpForm = styled.form`
   margin-top: 36px;
   width: 374px;
-  height: 236px;
+  height: 320px;
 `;
 const StyledSignUpFormInp = styled.div`
   width: 100%;
@@ -179,72 +180,85 @@ const StyledSignUpSBtnSpan = styled.a`
 `;
 // Styled Button and Text end
 
+
 // Styled Components end
 
-export default function SignIn() {
+export default function SignUp() {
+  const navigate = useNavigate();
+  const { handleSubmit, name, setName } = useGlobalContext();
   return (
-    <StyledSignUpContainer>
-      <StyledSignUpDiv>
-        <StyledSignUpH1>Sign In</StyledSignUpH1>
+    <>
+      <StyledSignUpContainer>
+        <StyledSignUpDiv>
+          <StyledSignUpH1>Sign Up</StyledSignUpH1>
+          <StyledSignUpFrame1>
+            <StyledSignUpFrame11>
+              <img src={SignUpImg1} alt="icon" />
+              <StyledSignUpFrame1Text>
+                Continue with Google
+              </StyledSignUpFrame1Text>
+            </StyledSignUpFrame11>
+            <StyledSignUpFrame12>
+              <img src={SignUpImg2} alt="icon" />
+              <StyledSignUpFrame1Text>
+                Continue with Google
+              </StyledSignUpFrame1Text>
+            </StyledSignUpFrame12>
+          </StyledSignUpFrame1>
 
-        <StyledSignUpFrame1>
-          <StyledSignUpFrame11>
-            <img src={SignUpImg1} alt="icon" />
-            <StyledSignUpFrame1Text>
-              Continue with Google
-            </StyledSignUpFrame1Text>
-          </StyledSignUpFrame11>
-          <StyledSignUpFrame12>
-            <img src={SignUpImg2} alt="icon" />
-            <StyledSignUpFrame1Text>
-              Continue with Google
-            </StyledSignUpFrame1Text>
-          </StyledSignUpFrame12>
-        </StyledSignUpFrame1>
+          <StyledSignUpDisting>
+            <StyledSignUpDistinghr1 />
+            <StyledSignUpDistingtext>OR</StyledSignUpDistingtext>
+            <StyledSignUpDistinghr1 />
+          </StyledSignUpDisting>
 
-        <StyledSignUpDisting>
-          <StyledSignUpDistinghr1 />
-          <StyledSignUpDistingtext>OR</StyledSignUpDistingtext>
-          <StyledSignUpDistinghr1 />
-        </StyledSignUpDisting>
-
-        <StyledSignUpForm>
-          <StyledSignUpFormInp>
-            <StyledSignUpFormInpLabel>Your username</StyledSignUpFormInpLabel>
-            <StyledSignUpFormInp1
-              placeholder="Enter your username"
-              required
-              type="text"
-            ></StyledSignUpFormInp1>
-          </StyledSignUpFormInp>
-          <StyledSignUpFormInp2>
-            <StyledSignUpFormInpLabel>Your Email</StyledSignUpFormInpLabel>
-            <StyledSignUpFormInp1
-              type="email"
-              placeholder="Enter your email"
-              required
-            ></StyledSignUpFormInp1>
-          </StyledSignUpFormInp2>
-          <StyledSignUpFormInp2>
-            <StyledSignUpFormInpLabel>Your password</StyledSignUpFormInpLabel>
-            <StyledSignUpFormInp1
-              type="password"
-              placeholder="Enter your password"
-              required
-            ></StyledSignUpFormInp1>
-          </StyledSignUpFormInp2>
-        </StyledSignUpForm>
-
-        <StyledSignUpSBtn>
-          <StyledSignUpBtn>Send</StyledSignUpBtn>
-          <StyledSignUpSBtnP>
-            Already signed up?{" "}
-            <StyledSignUpSBtnSpan href="/signup/user">
-              Go to sign up.
-            </StyledSignUpSBtnSpan>
-          </StyledSignUpSBtnP>
-        </StyledSignUpSBtn>
-      </StyledSignUpDiv>
-    </StyledSignUpContainer>
+          <StyledSignUpForm>
+            <StyledSignUpFormInp>
+              <StyledSignUpFormInpLabel>Your username</StyledSignUpFormInpLabel>
+              <StyledSignUpFormInp1
+                placeholder="Enter your username"
+                required
+                type="text"
+              ></StyledSignUpFormInp1>
+            </StyledSignUpFormInp>
+            <StyledSignUpFormInp2>
+              <StyledSignUpFormInpLabel>Your Email</StyledSignUpFormInpLabel>
+              <StyledSignUpFormInp1
+                type="email"
+                placeholder="Enter your Email"
+                required
+              ></StyledSignUpFormInp1>
+            </StyledSignUpFormInp2>
+            <StyledSignUpFormInp2>
+              <StyledSignUpFormInpLabel>Your Password</StyledSignUpFormInpLabel>
+              <StyledSignUpFormInp1
+                type="password"
+                placeholder="Enter your Password"
+                required
+              ></StyledSignUpFormInp1>
+            </StyledSignUpFormInp2>
+            <StyledSignUpFormInp2>
+              <StyledSignUpFormInpLabel>
+                Confirm Password
+              </StyledSignUpFormInpLabel>
+              <StyledSignUpFormInp1
+                type="password"
+                placeholder="Enter your Password"
+                required
+              ></StyledSignUpFormInp1>
+            </StyledSignUpFormInp2>
+          </StyledSignUpForm>
+          <StyledSignUpSBtn>
+            <StyledSignUpBtn>Send</StyledSignUpBtn>
+            <StyledSignUpSBtnP>
+              Already signed up?{" "}
+              <StyledSignUpSBtnSpan href="/signin/user">
+                Go to sign in.
+              </StyledSignUpSBtnSpan>
+            </StyledSignUpSBtnP>
+          </StyledSignUpSBtn>
+        </StyledSignUpDiv>
+      </StyledSignUpContainer>
+    </>
   );
 }

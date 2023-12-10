@@ -1,1 +1,2 @@
-// export { default as Home } from '../assets/'
+export { default as SignUpImg1 } from '../assets/social-logo.svg'
+export { default as SignUpImg2 } from '../assets/social-logo (1).svg'
