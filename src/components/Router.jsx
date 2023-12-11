@@ -6,6 +6,8 @@ import Basket from "../pages/Basket/Basket.jsx";
 import Product  from "../pages/Product/Product.jsx";
 import Like from "../pages/Like/Like.jsx";
 import SignUp from '../pages/SignUp/SignUp.jsx'
+import Single from "../pages/Single/Single.jsx";
+import Loading from "../pages/Loading/Loading.jsx";
 
 
 
@@ -13,7 +15,9 @@ export default function Router() {
   return (
     <Routes>
       <Route path="/" element={<Home />}/>
+      <Route path="loading/data" element={<Loading />}/>
       <Route path="/like" element={<Like />}/>
+      <Route path="/single/:id" element={<Single />}/>
       <Route path="/basket/total" element={<Basket />}/>
       <Route path="/signin/user" element={<SignIn />}/>
       <Route path="/signup/user" element={<SignUp />}/>

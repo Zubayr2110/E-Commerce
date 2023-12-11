@@ -1,11 +1,12 @@
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
-import FetchData from "../../fetures/FetchData";
 import "./Home.css";
+import { useNavigate } from "react-router-dom";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 
 export default function Home() {
-  const fetchdata = FetchData();
-  console.log(fetchdata);
+  
+  const navigate = useNavigate()
+
   return (
     <>
       <Header />
@@ -33,52 +34,21 @@ export default function Home() {
             <div className="mainIPC">
               <div className="mainIPCI">
                 <img
-                  src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+                  src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
                   width={200}
                   alt="image"
                   className="mainIPCImg"
                 />
                 <i className="fa-solid fa-heart mainIPCIH"></i>
               </div>
-              <p className="mainIPCTitle">
+              <p className="mainIPCTitle" onClick={() => navigate('/single/:id')}>
                 Mens Casual Premium Slim Fit T-Shirts{" "}
               </p>
-              <p className="mainIPCPrice">$166</p>
-              <button className="mainIPCBtn"><i class="fa-solid fa-cart-shopping mainIPCBtnI"></i> Buy</button>
+              <p className="mainIPCPrice" onClick={() => navigate('/single/:id')}>$166</p>
+              <button className="mainIPCBtn">
+                <i className="fa-solid fa-cart-shopping mainIPCBtnI"></i> Buy
+              </button>
             </div>
-            <div className="mainIPC">
-              <div className="mainIPCI">
-                <img
-                  src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-                  width={200}
-                  alt="image"
-                  className="mainIPCImg"
-                />
-                <i className="fa-solid fa-heart mainIPCIH"></i>
-              </div>
-              <p className="mainIPCTitle">
-                Mens Casual Premium Slim Fit T-Shirts{" "}
-              </p>
-              <p className="mainIPCPrice">$166</p>
-              <button className="mainIPCBtn"><i class="fa-solid fa-cart-shopping mainIPCBtnI"></i> Buy</button>
-            </div>
-            <div className="mainIPC">
-              <div className="mainIPCI">
-                <img
-                  src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-                  width={200}
-                  alt="image"
-                  className="mainIPCImg"
-                />
-                <i className="fa-solid fa-heart mainIPCIH"></i>
-              </div>
-              <p className="mainIPCTitle">
-                Mens Casual Premium Slim Fit T-Shirts{" "}
-              </p>
-              <p className="mainIPCPrice">$166</p>
-              <button className="mainIPCBtn"><i class="fa-solid fa-cart-shopping mainIPCBtnI"></i> Buy</button>
-            </div>
-            
           </div>
         </section>
       </main>

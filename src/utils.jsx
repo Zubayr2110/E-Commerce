@@ -1,6 +1,6 @@
-export const getUser = (key) => {
-    return localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key)) : false
+export const getUser = () => {
+    return localStorage.getItem(user) ? JSON.parse(localStorage.getItem(user)) : false
 };
-export const getProducts = (key) => {
-    return localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key)) : []
+export const getProducts = () => {
+    return localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : []
 };

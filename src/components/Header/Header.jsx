@@ -11,7 +11,7 @@ export default function Header() {
                     <li className="headerli"><i className="fa-regular fa-heart"></i><Link to="/like">Like</Link></li>
                     <li className="headerli"><i className="fa-solid fa-cube"></i><Link to="/product">Product</Link></li>
                     <li className="headerli"><i className="fa-solid fa-cart-shopping"></i><Link to="/basket/total">Basket</Link></li>
-                    <li className="headerli"><i className="fa-solid fa-user"></i><Link to="/signup/user">Sign In</Link></li>
+                    <li className="headerli"><i className="fa-solid fa-user"></i><Link to="/signup/user">Sign Up</Link></li>
                 </ul>
             </nav>
         </div>

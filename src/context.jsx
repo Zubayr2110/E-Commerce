@@ -2,22 +2,27 @@ import { useEffect, useReducer, useState } from "react";
 import { createContext, useContext } from "react";
 import reducer from "./reducer";
 import { uid } from "uid";
-import { getUser } from "./utils";
+import { getProducts, getUser } from "./utils";
+import Loading from "./pages/Loading/Loading.jsx";
 
 const id = uid();
 
 const initialState = {
   data: [],
-  loading: false,
-  total: 0,
+  cart: "https://jsonplaceholder.typicode.com/users",
 };
 
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
+  const url = `https://jsonplaceholder.typicode.com`
+  const [loading, setLoading] = useState(false);
+
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [products, setProducts] = useState(getProducts("products"));
   const [state, dispatch] = useReducer(reducer, initialState);
+
   const clearBasket = () => {
     dispatch({ type: "CLEARBASKET" });
   };
@@ -33,6 +38,26 @@ const AppProvider = ({ children }) => {
       console.log(getUser);
     }
   };
+
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const resp = await fetch(url);
+      const data = await resp.json();
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <AppContext.Provider
       value={{
