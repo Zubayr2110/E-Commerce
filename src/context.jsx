@@ -5,54 +5,62 @@ import { uid } from "uid";
 import { getProducts, getUser } from "./utils";
 import Loading from "./pages/Loading/Loading.jsx";
 
-const id = uid();
-
 const initialState = {
   data: [],
-  cart: "https://jsonplaceholder.typicode.com/users",
+  cart: "https://fakestoreapi.com/products",
 };
+
+const id = uid();
+const url = `https://fakestoreapi.com/products`;
 
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
-  const url = `https://jsonplaceholder.typicode.com`
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState(getUser("user"));
   const [products, setProducts] = useState(getProducts("products"));
-  const [state, dispatch] = useReducer(reducer, initialState);
+  
+  const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await fetch('https://fakestoreapi.com/products');
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const result = await response.json();
+          setData(result);
+        } catch (error) {
+          setError(error);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchData();
+    }, []);
 
-  const clearBasket = () => {
-    dispatch({ type: "CLEARBASKET" });
-  };
-  const inc = () => {
-    dispatch({ type: "INCREASE", payload: id });
-  };
-  const dec = () => {
-    dispatch({ type: "DECREASE", payload: id });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (getUser) {
-      console.log(getUser);
-    }
+  const login = () => {
+    const newUser = { id: id, name: name, psw: password, email: email };
+    setUser(newUser);
   };
 
-  const fetchData = async () => {
-    setLoading(true);
-    try {
-      const resp = await fetch(url);
-      const data = await resp.json();
-    } catch (error) {
-      console.error(error);
-      setLoading(false);
-    }
+  const addProduct = () => {
+    const newProduct = { id: id, img: img, title: title, price: price };
+    setProducts([...products, newProduct]);
   };
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("products", JSON.stringify(products));
+  }, [user, products]);
+
+
 
   if (loading) {
     return <Loading />;
@@ -61,15 +69,14 @@ const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
-        ...state,
-        handleSubmit,
-        dec,
-        inc,
-        clearBasket,
+        login,
         name,
         setName,
         password,
         setPassword,
+        email,
+        setEmail,
+        data
       }}
     >
       {children}

@@ -1,9 +1,9 @@
-import "./Footer.css";
+import { SFooter } from "../Styled";
 
 export default function Footer() {
   return (
-      <footer className="footer">
-        <p>&copy; 2023 E-Commerce. All rights reserved.</p>
-      </footer>
+    <SFooter className="footer">
+      <p>&copy; 2023 E-Commerce. All rights reserved.</p>
+    </SFooter>
   );
 }

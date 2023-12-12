@@ -1,123 +1,62 @@
 .main {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
 }
-
 
 /* Main Categoriya Styles */
 .mainCategoriya {
-    width: 100%;
-    height: 86px;
-    border-bottom: 2px solid #ccc;
+  width: 100%;
+  height: 86px;
+  border-bottom: 2px solid #ccc;
 }
 .mainCp {
-    margin: 0 auto;
-    width: 120px;
-    color: green;
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold;
+  margin: 0 auto;
+  width: 120px;
+  color: green;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
 }
 .mainCUl {
-    margin-top: 15px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 .mainCUlLi {
-    list-style: none;
+  list-style: none;
 }
 .mainCUlLiBtn {
-    background: rgba(255, 0, 0, 0);
-    font-size: 20px;
-    font-weight: bold;
-    border: none;
-    color: rgb(74, 74, 74);
-
+  background: rgba(255, 0, 0, 0);
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  color: rgb(74, 74, 74);
 }
 
 /* Main Categoriya Styles end */
 
-
-
-
-
 /* Main Item or Products Styles */
 
 .mainItem {
-    margin: 0 auto;
-    width: 85%;
-    height: 100%;
-    border: var(--border);
+  margin: 0 auto;
+  width: 85%;
+  height: 100%;
+  border: var(--border);
 }
 .mainItemH1 {
-    font-size: 50px;
-    font-weight: bold;
-    text-align: center;
-    border: var(--border);
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  border: var(--border);
 }
 .mainIP {
-    width: 100%;
-    display: grid;
-    border: var(--border);
-    grid-template-columns: auto auto auto auto;
-}
-.mainIPC {
-    cursor: pointer;
-    margin-left: 40px;
-    margin-top: 80px;
-    width: 320px;
-    height: 470px;
-    border-radius: 10px;
-    border: var(--border);
-    padding: 10px;
-}
-.mainIPC:hover {
-    transition: 0.3s;
-    box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.281);
-
-}
-.mainIPCI {
-    width: 100%;
-    height: 275px;
-    display: flex;
-    font-size: 35px;
-    border: var(--border);
-}
-.mainIPCImg {
-    margin-top: 5px;
-    margin-left: 50px;
+  width: 100%;
+  display: grid;
+  border: var(--border);
+  grid-template-columns: auto auto auto auto;
 }
 
-.mainIPCIH {
-    cursor: pointer;
-    margin-top: 5px;
-    margin-left: 10px;
-}
-.mainIPCTitle {
-    font-family: sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-}
-.mainIPCPrice {
-    font-weight: bold;
-    font-size: 25px;
-    border: var(--border);
-}
-.mainIPCBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 40px;
-    border: none;
-    border-radius: 10px;
-    background-color: greenyellow;
-    font-size: 25px;
-}
-.mainIPCBtnI {
-    margin-right: 20px;
-}

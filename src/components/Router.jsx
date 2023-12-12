@@ -1,28 +1,28 @@
 import { Route, Routes } from "react-router-dom";
-import ErrorP from '../pages/ErrorP/ErrorP.jsx'
+import ErrorP from "../pages/ErrorP/ErrorP.jsx";
 import Home from "../pages/Home/Home.jsx";
 import SignIn from "../pages/SignIn/SignIn.jsx";
 import Basket from "../pages/Basket/Basket.jsx";
-import Product  from "../pages/Product/Product.jsx";
+import Product from "../pages/Product/Product.jsx";
 import Like from "../pages/Like/Like.jsx";
-import SignUp from '../pages/SignUp/SignUp.jsx'
+import SignUp from "../pages/SignUp/SignUp.jsx";
 import Single from "../pages/Single/Single.jsx";
 import Loading from "../pages/Loading/Loading.jsx";
-
-
+import Card from "../pages/Card/Card.jsx";
 
 export default function Router() {
   return (
     <Routes>
-      <Route path="/" element={<Home />}/>
-      <Route path="loading/data" element={<Loading />}/>
-      <Route path="/like" element={<Like />}/>
-      <Route path="/single/:id" element={<Single />}/>
-      <Route path="/basket/total" element={<Basket />}/>
-      <Route path="/signin/user" element={<SignIn />}/>
-      <Route path="/signup/user" element={<SignUp />}/>
-      <Route path="/product" element={<Product />}/>
-      <Route path="*" element={<ErrorP />}/>
+      <Route path="/" element={<Home />} />
+      <Route path="/card" element={<Card />} />
+      <Route path="loading/data" element={<Loading />} />
+      <Route path="/like" element={<Like />} />
+      <Route path="/single/:id" element={<Single />} />
+      <Route path="/basket/total" element={<Basket />} />
+      <Route path="/signin/user" element={<SignIn />} />
+      <Route path="/signup/user" element={<SignUp />} />
+      <Route path="/product" element={<Product />} />
+      <Route path="*" element={<ErrorP />} />
     </Routes>
-  )
+  );
 }
