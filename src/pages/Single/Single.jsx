@@ -12,8 +12,10 @@ import {
   SSingleCOTP,
   SSingleCOTPice,
 } from "../../components/Styled";
+import { useGlobalContext } from "../../context";
 
-export default function Single({ data }) {
+export default function Single() {
+  const { products } = useGlobalContext();
   const BasketBTNClick = () => {
     alert("Add Product To Basket");
   };
@@ -22,28 +24,23 @@ export default function Single({ data }) {
   };
 
   const { id } = useParams();
-  const singleProduct = data.find((item) => item.id === id);
-  const { image, title, description, price } = singleProduct
-  
+  const singleProduct = products.find((item) => item.id === id);
+  const { img, title, description, price } = singleProduct;
+
   return (
     <>
       <Header />
       <div className="singleC">
         <div className="singleCO">
           <div className="singleCOImg">
-            <SSingleCOImg1 src={image} alt="" />
+            <SSingleCOImg1 src={img} alt="" />
           </div>
           <SSingleCOT>
-            <SSingleCOTH1>
-              Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops{" "}
-            </SSingleCOTH1>
-            <SSingleCOTP>
-              Your perfect pack for everyday use and walks in the forest. Stash
-              your laptop (up to 15 inches) in the padded sleeve, your everyday
-            </SSingleCOTP>
-            <SSingleCOTPice>$166</SSingleCOTPice>
+            <SSingleCOTH1>{title}</SSingleCOTH1>
+            <SSingleCOTP>{description}</SSingleCOTP>
+            <SSingleCOTPice>${price}</SSingleCOTPice>
             <SSingleCOTB>
-              <SSDingleCOTBtn1 onClick={BasketBTNClick  }>
+              <SSDingleCOTBtn1 onClick={BasketBTNClick}>
                 {" "}
                 <i className="fa-solid fa-cart-shopping mainIPCBtnI"></i>Buy
               </SSDingleCOTBtn1>

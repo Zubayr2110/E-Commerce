@@ -8,13 +8,20 @@ import Like from "../pages/Like/Like.jsx";
 import SignUp from "../pages/SignUp/SignUp.jsx";
 import Single from "../pages/Single/Single.jsx";
 import Loading from "../pages/Loading/Loading.jsx";
-import Card from "../pages/Card/Card.jsx";
+import ProtectRoute from "./ProtectRoute.jsx";
+import AddProduct from "../pages/AddProduct/AddProduct.jsx";
+import Cards from "../pages/Card/Cards.jsx";
 
 export default function Router() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/card" element={<Card />} />
+      <Route path="/add/product" element={
+        <ProtectRoute>
+          <AddProduct />
+        </ProtectRoute>
+      }/>
+      <Route path="/cards" element={<Cards />} />
       <Route path="loading/data" element={<Loading />} />
       <Route path="/like" element={<Like />} />
       <Route path="/single/:id" element={<Single />} />

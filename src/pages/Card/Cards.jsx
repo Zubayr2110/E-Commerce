@@ -1,12 +1,14 @@
+import { AddPSI } from "../../components/Styled";
+import { useGlobalContext } from "../../context";
 import Card from "./Card";
 
-
-export default function Cards({ data }) {
-    
+export default function Cards() {
+  const { products } = useGlobalContext()
   return (
-    <div>
-        {data.map((item) => <Card key={item.id} {...item}/>)}
-    </div>
-
-  )
+    <>
+      {products.map((item) => (
+        <Card key={item.id} {...item} />
+      ))}
+    </>
+  );
 }

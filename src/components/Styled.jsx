@@ -515,3 +515,109 @@ export const StyledCards = styled.div`
   border: var(--border);
   grid-template-columns: auto auto auto auto;
 `
+// Card Styled Components end
+
+
+
+
+
+
+
+// AddProduct Styled Components
+
+export const AddPStyled = styled.div`
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // border: 1px solid;
+
+`
+export const AddPSContext = styled.div`
+  width: 80%;
+  // border: 1px solid;
+`
+export const AddPSContextH1 = styled.h1`
+  text-align: center;
+  font-weight: bold;
+  font-size: 50px;
+`
+export const AddPSCD = styled.form`
+  padding:25px;
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 500px;
+  height: 650px;
+  border: 2px solid green;
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px 1px greenyellow;
+`
+export const AddPSCFP = styled.label`
+  font-weight: bold;
+  font-size:20px;
+`
+export const AddPSCFInp = styled.input`
+  padding: 15px;
+  margin-top:20px;
+  width: 100%;
+  height: 50px;
+  outline: none;
+  font-size:25px;
+  border: 2px solid green;
+  border-radius: 10px;
+
+
+`
+export const AddPSCFP1 = styled.label`
+  padding-top: 20px;
+  font-weight: bold;
+  font-size: 20px;
+`
+export const AddPSCFTAREA = styled.textarea`
+margin-top: 20px;
+padding: 10px;
+outline: none;
+height:220px;
+max-height:220px;
+border-radius:10px;
+`
+export const AddPSFBSEND = styled.button`
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  outline: none;
+  border: none;
+  border-radius:10px;
+  background-color: greenyellow;
+  font-size:25px;
+  font-weight:bold;
+`
+export const AddPSI = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-column: auto auto auto auto;
+
+`
+// AddProduct Styled Components end
+
+
+
+
+
+
+
+// Product Styled Components
+
+export const ProductS = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+`
+export const ProductSD = styled.div`
+  width: 80%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+`

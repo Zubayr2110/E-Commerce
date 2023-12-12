@@ -9,16 +9,16 @@ import {
 } from "../../components/Styled";
 import "./Card.css";
 
-export default function Card({ id, image, title, price }) {
+export default function Card({ id, img, title, price }) {
   const navigate = useNavigate();
 
   return (
     <StyledCard className="mainIPC" >
       <StyledCardImg className="mainIPCI">
         <StyledCardImg1
-          src={ image }
+          src={ img }
           width={200}
-          alt="img  "
+          alt="img"
         />
         <i className="fa-solid fa-heart mainIPCIH"></i>
       </StyledCardImg>
@@ -29,7 +29,7 @@ export default function Card({ id, image, title, price }) {
         className="mainIPCPrice"
         onClick={() => navigate(`/single/${id}`)}
       >
-        {price}
+        ${price}
       </StyledCardPrice>
 
       <StyledCardBtn className="mainIPCBtn">
