@@ -15,7 +15,7 @@ import {
 import { useGlobalContext } from "../../context";
 
 export default function Single() {
-  const { products } = useGlobalContext();
+  const { products, addBasket } = useGlobalContext();
   const BasketBTNClick = () => {
     alert("Add Product To Basket");
   };
@@ -25,7 +25,7 @@ export default function Single() {
 
   const { id } = useParams();
   const singleProduct = products.find((item) => item.id === id);
-  const { img, title, description, price } = singleProduct;
+  const { image, title, description, price } = singleProduct;
 
   return (
     <>
@@ -33,14 +33,16 @@ export default function Single() {
       <div className="singleC">
         <div className="singleCO">
           <div className="singleCOImg">
-            <SSingleCOImg1 src={img} alt="" />
+            <SSingleCOImg1 src={image} alt="" />
           </div>
           <SSingleCOT>
             <SSingleCOTH1>{title}</SSingleCOTH1>
             <SSingleCOTP>{description}</SSingleCOTP>
             <SSingleCOTPice>${price}</SSingleCOTPice>
             <SSingleCOTB>
-              <SSDingleCOTBtn1 onClick={BasketBTNClick}>
+              <SSDingleCOTBtn1 onClick={
+                () =>  addBasket()
+              }>
                 {" "}
                 <i className="fa-solid fa-cart-shopping mainIPCBtnI"></i>Buy
               </SSDingleCOTBtn1>

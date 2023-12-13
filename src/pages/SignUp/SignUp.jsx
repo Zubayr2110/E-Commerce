@@ -81,7 +81,7 @@ export default function SignUp() {
                 onChange={(e) => setPassword(e.target.value)}
               ></StyledSignUpFormInp1>
             </StyledSignUpFormInp2>
-            <StyledSignUpFormInp2>
+            {/* <StyledSignUpFormInp2>
               <StyledSignUpFormInpLabel>
                 Confirm Password
               </StyledSignUpFormInpLabel>
@@ -89,10 +89,8 @@ export default function SignUp() {
                 type="password"
                 placeholder="Enter your Password"
                 required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
               ></StyledSignUpFormInp1>
-            </StyledSignUpFormInp2>
+            </StyledSignUpFormInp2> */}
             <StyledSignUpSBtn>
               <StyledSignUpBtn>Send</StyledSignUpBtn>
               <StyledSignUpSBtnP>

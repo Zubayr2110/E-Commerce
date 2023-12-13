@@ -12,7 +12,6 @@ const initialState = {
   cart: "https://fakestoreapi.com/products",
 };
 
-
 const id = uid();
 const url = `https://fakestoreapi.com/products`;
 
@@ -82,16 +81,16 @@ const AppProvider = ({ children }) => {
     };
     setProducts([...products, newProduct]);
   };
-  const addBasket = (id) => {
-    const newBasket = {
+  const addBasket = () => {
+    const newBasketItem = {
       id: id,
-      image: image,
       title: title,
       price: price,
-      description: description
-    }
-    setBasket([...basket, newBasket])
-  }
+      description: description,
+      image: image,
+    };
+    setBasket([...basket, newBasketItem]);
+  };
 
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(user));

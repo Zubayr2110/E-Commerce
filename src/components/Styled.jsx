@@ -85,7 +85,7 @@ export const StyledSignUpDiv = styled.div`
   margin: 0 auto;
   margin-top: 80px;
   width: 430px;
-  height: 778px;
+  height: 700px;
   border-radius: 12px;
   padding: 48px 28px;
   background: var(--foundation-white-white-50, #fefefe);
