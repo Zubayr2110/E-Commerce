@@ -2,7 +2,7 @@ import { useEffect, useReducer, useState } from "react";
 import { createContext, useContext } from "react";
 import reducer from "./reducer";
 import { uid } from "uid";
-import { getProducts, getUser } from "./utils";
+import { getBasket, getProducts, getUser } from "./utils";
 import Loading from "./pages/Loading/Loading.jsx";
 import { useNavigate } from "react-router-dom";
 
@@ -23,11 +23,12 @@ const AppProvider = ({ children }) => {
   const [title, setTitle] = useState("");
 
   const [price, setPrice] = useState("");
-  const [img, setImg] = useState(`https://picsum.photos/200/300`);
+  const [image, setImage] = useState(`https://picsum.photos/200/300`);
 
   const [name, setName] = useState("");
 
   const [description, setDescription] = useState("");
+
 
   const [email, setEmail] = useState("");
 
@@ -36,6 +37,8 @@ const AppProvider = ({ children }) => {
   const [user, setUser] = useState(getUser("user"));
 
   const [products, setProducts] = useState(getProducts("products"));
+
+  const [basket, setBasket] = useState(getBasket("basket"))
 
   const [data, setData] = useState(null);
 
@@ -68,16 +71,27 @@ const AppProvider = ({ children }) => {
   const addProduct = () => {
     const newProduct = {
       id: id,
-      img: img,
+      image: image,
       title: title,
       price: price,
       description: description,
     };
     setProducts([...products, newProduct]);
   };
+  const addBasket = () => {
+    const newBasket = {
+      id: id,
+      image: image,
+      title: title,
+      price: price,
+      description: description
+    }
+    setBasket([...basket, newBasket])
+  }
 
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("basket", JSON.stringify(basket))
     localStorage.setItem("products", JSON.stringify(products));
   }, [user, products]);
 
@@ -120,9 +134,11 @@ const AppProvider = ({ children }) => {
 
         setPrice,
 
-        img,
+        image,
 
-        setImg,
+        setImage,
+
+        addBasket,
       }}
     >
       {children}
