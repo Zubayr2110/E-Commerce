@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { StyledCards } from "../../components/Styled";
+import { useGlobalContext } from "../../context";
 
 export default function Home() {
   const navigate = useNavigate();
+  const { addBasket } = useGlobalContext()
 
   return (
     <>
@@ -29,7 +31,7 @@ export default function Home() {
           </ul>
         </section>
         <section className="mainItem">
-          <h1 className="mainItemH1">Products</h1>
+          <h1 className="mainItemH1" onClick={() => addBasket()}>Products</h1>
           <StyledCards className="mainIP">
             
           </StyledCards>
