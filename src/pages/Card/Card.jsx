@@ -8,15 +8,17 @@ import {
   StyledCardTitle,
 } from "../../components/Styled";
 import "./Card.css";
+import { useGlobalContext } from "../../context";
 
-export default function Card({ id, img, title, price }) {
+export default function Card({ id, image, title, price }) {
   const navigate = useNavigate();
+  const { addBasket } = useGlobalContext()
 
   return (
     <StyledCard className="mainIPC" >
       <StyledCardImg className="mainIPCI">
         <StyledCardImg1
-          src={ img }
+          src={ image }
           width={200}
           alt="img"
         />
@@ -32,7 +34,7 @@ export default function Card({ id, img, title, price }) {
         ${price}
       </StyledCardPrice>
 
-      <StyledCardBtn className="mainIPCBtn">
+      <StyledCardBtn className="mainIPCBtn" onClick={() => addBasket(id)}>
         <i className="fa-solid fa-cart-shopping mainIPCBtnI"></i> Buy
       </StyledCardBtn>
     </StyledCard>

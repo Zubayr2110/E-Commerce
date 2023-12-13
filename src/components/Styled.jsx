@@ -448,11 +448,11 @@ export const StyledSignInSBtnSpan = styled.a`
 // Footer Styled Components
 
 export const SFooter = styled.footer`
+  margin-top: 150px;
   background-color: #333;
   color: #fff;
   text-align: center;
   padding: 10px;
-  position: fixed;
   bottom: 0;
   width: 100%;
 `
@@ -471,9 +471,9 @@ export const StyledCard = styled.div`
   margin-left: 40px;
   margin-top: 80px;
   width: 320px;
-  height: 470px;
+  height: 530px;
   border-radius: 10px;
-  border: 2px solid green;
+  // border: 2px solid green;
   padding: 10px;
 `
 export const StyledCardImg = styled.div`
@@ -481,7 +481,6 @@ export const StyledCardImg = styled.div`
   height: 275px;
   display: flex;
   font-size: 35px;
-  border: var(--border);
 `
 export const StyledCardImg1 = styled.img`
   margin-top: 5px;
@@ -489,13 +488,14 @@ export const StyledCardImg1 = styled.img`
 `
 export const StyledCardTitle = styled.p`
   font-family: sans-serif;
+  height: 120px;
+  max-height: 120px;
   font-size: 20px;
   font-weight: bold;
 `
 export const StyledCardPrice = styled.p`
 font-weight: bold;
 font-size: 25px;
-border: var(--border);
 `
 export const StyledCardBtn = styled.button`
   display: flex;

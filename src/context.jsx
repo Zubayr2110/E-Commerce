@@ -5,11 +5,13 @@ import { uid } from "uid";
 import { getBasket, getProducts, getUser } from "./utils";
 import Loading from "./pages/Loading/Loading.jsx";
 import { useNavigate } from "react-router-dom";
+import Data from './components/Data.jsx'
 
 const initialState = {
-  data: [],
+  data: Data,
   cart: "https://fakestoreapi.com/products",
 };
+
 
 const id = uid();
 const url = `https://fakestoreapi.com/products`;
@@ -18,6 +20,8 @@ const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const navigate = useNavigate();
+  const [state, dispatch] = useReducer(reducer, initialState)
+  // console.log(Data);
   const [loading, setLoading] = useState(true);
 
   const [title, setTitle] = useState("");
@@ -78,7 +82,7 @@ const AppProvider = ({ children }) => {
     };
     setProducts([...products, newProduct]);
   };
-  const addBasket = () => {
+  const addBasket = (id) => {
     const newBasket = {
       id: id,
       image: image,
@@ -102,6 +106,8 @@ const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        ...state,
+
         login,
 
         name,
@@ -139,6 +145,7 @@ const AppProvider = ({ children }) => {
         setImage,
 
         addBasket,
+
       }}
     >
       {children}

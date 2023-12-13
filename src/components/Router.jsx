@@ -11,6 +11,7 @@ import Loading from "../pages/Loading/Loading.jsx";
 import ProtectRoute from "./ProtectRoute.jsx";
 import AddProduct from "../pages/AddProduct/AddProduct.jsx";
 import Cards from "../pages/Card/Cards.jsx";
+import HSingle from "../pages/Single/HSingle.jsx";
 
 export default function Router() {
   return (
@@ -25,6 +26,7 @@ export default function Router() {
       <Route path="loading/data" element={<Loading />} />
       <Route path="/like" element={<Like />} />
       <Route path="/single/:id" element={<Single />} />
+      <Route path="/singleh/:id" element={<HSingle />} />
       <Route path="/basket/total" element={<Basket />} />
       <Route path="/signin/user" element={<SignIn />} />
       <Route path="/signup/user" element={<SignUp />} />

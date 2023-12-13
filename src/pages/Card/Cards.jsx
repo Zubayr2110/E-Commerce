@@ -1,4 +1,3 @@
-import { AddPSI } from "../../components/Styled";
 import { useGlobalContext } from "../../context";
 import Card from "./Card";
 
