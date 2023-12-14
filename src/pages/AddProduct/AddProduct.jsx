@@ -1,3 +1,4 @@
+import Data from "../../components/Data";
 import Header from "../../components/Header/Header";
 import {
   AddPSCD,
@@ -24,7 +25,9 @@ export default function AddProduct() {
     setPrice,
     img,
     setImg,
+    setProducts,
   } = useGlobalContext();
+  setProducts(Data)
   return (
     <>
       <Header />

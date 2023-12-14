@@ -3,7 +3,7 @@ import { StyledCard, StyledCardBtn, StyledCardImg, StyledCardImg1, StyledCardPri
 import { useNavigate } from 'react-router-dom';
 import { useGlobalContext } from '../../context';
 
-export default function HCard({ id,  image, title, price, description }) {
+export default function HCard({ id,  image, title, price, description, amount }) {
     const navigate = useNavigate()
     const { addBasket } = useGlobalContext()
     return (
@@ -23,7 +23,7 @@ export default function HCard({ id,  image, title, price, description }) {
           ${price}
         </StyledCardPrice>
 
-        <StyledCardBtn className="mainIPCBtn" onClick={() => addBasket(id, title, price, description, image)}>
+        <StyledCardBtn className="mainIPCBtn" onClick={() => addBasket(id, title, price, description, image, amount)}>
           <i className="fa-solid fa-cart-shopping mainIPCBtnI"></i> Buy
         </StyledCardBtn>
       </StyledCard>

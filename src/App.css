@@ -13,4 +13,5 @@ a {
 ::-webkit-scrollbar-thumb {
   background: cyan;
   border-radius: 10px;
+  color: blueviolet;
 }

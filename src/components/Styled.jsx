@@ -810,3 +810,14 @@ export const BasketSCST32 = styled.p`
   font-size: 23px;
   // border: 1px solid;
 `
+export const BasketSCCB = styled.button`
+  margin-top: 40px;
+  width: 100%;
+  height:40px;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 25px;
+  background-color: blueviolet;
+  border-radius: 10px;
+`
