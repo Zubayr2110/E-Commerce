@@ -2,7 +2,7 @@ import { useEffect, useReducer, useState } from "react";
 import { createContext, useContext } from "react";
 import reducer from "./reducer";
 import { uid } from "uid";
-import { getBasket, getDproducts, getProducts, getUser } from "./utils";
+import { getBasket, getLikeL, getProducts, getUser } from "./utils";
 import Loading from "./pages/Loading/Loading.jsx";
 import { useNavigate } from "react-router-dom";
 import Data from "./components/Data.jsx";
@@ -24,10 +24,15 @@ const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const clearBasket = () => {
-    dispatch({ type: "CLEAR" })
+    if(getBasket !== " ") {
+      dispatch({ type: "CLEAR" })
+      localStorage.clear()
+      location.reload()
+    }
+    
   }
   const addB = (id) => {
-    dispatch({ type: "INC", payload: id })
+    dispatch( { type: "INC", payload: id } )
   }
   const decB = (id) => {
     dispatch({ type: "DEC", payload: id })
@@ -61,6 +66,7 @@ const AppProvider = ({ children }) => {
   // const [dproducts, setDproducts] = useState("");
   const [basket, setBasket] = useState(getBasket("basket"));
 
+
   const [data, setData] = useState(null);
 
   const [error, setError] = useState(null);
@@ -80,7 +86,7 @@ const AppProvider = ({ children }) => {
     };
     setProducts([...products, newProduct]);
   };
-  const addBasket = (id, title, price, description, image, amount) => {
+  const addBasket = (id, title, price, description, image, amount, category) => {
     const newBasketItem = {
       id: id,
       title: title,
@@ -88,9 +94,26 @@ const AppProvider = ({ children }) => {
       description: description,
       image: image,
       amount: amount,
+      category: category,
     };
     setBasket([...basket, newBasketItem]);
+    alert("the product has been added to the cart")
   };
+
+
+  const [likeF, setLikeF] = useState(getLikeL("like"))
+  const FLikeI = (id, title, price, description, image, amount, category) => {
+    const newLP = {
+      id: id,
+      title: title,
+      price: price,
+      description: description,
+      image: image,
+      amount: amount,
+      category: category,
+    }
+    setLikeF([...likeF, newLP])
+  }
 
   // setProducts(Data)
   useEffect(() => {
@@ -98,8 +121,8 @@ const AppProvider = ({ children }) => {
     localStorage.setItem("user", JSON.stringify(user));
     localStorage.setItem("basket", JSON.stringify(basket));
     localStorage.setItem("products", JSON.stringify(products));
-    // localStorage.setItem("dproducts", JSON.stringify(dproducts));
-  }, [user, products, basket]);
+    localStorage.setItem("like", JSON.stringify(likeF));
+  }, [user, products, basket, likeF]);
 
   if (loading) {
     return <Loading />;
@@ -135,6 +158,8 @@ const AppProvider = ({ children }) => {
         setImage,
         addBasket,
         basket,
+        FLikeI,
+        likeF,
       }}
     >
       {children}

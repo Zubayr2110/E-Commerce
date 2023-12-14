@@ -811,6 +811,7 @@ export const BasketSCST32 = styled.p`
   // border: 1px solid;
 `
 export const BasketSCCB = styled.button`
+
   margin-top: 40px;
   width: 100%;
   height:40px;
@@ -820,4 +821,46 @@ export const BasketSCCB = styled.button`
   font-size: 25px;
   background-color: blueviolet;
   border-radius: 10px;
+`
+
+
+
+
+
+
+
+
+// Home select option
+
+export const SHSelect = styled.select`
+  width:200px;
+  font-size: 30px;
+  outline: none;
+  border: none;
+  background: cyan;
+  border-radius: 10px;
+`
+
+
+
+
+
+
+
+
+
+
+// Like Page Styled Components
+
+export const LikeSC = styled.div`
+  width:100%;
+  display: flex;
+  justify-content: center;
+`
+export const LikeSCM = styled.div`
+  width: 80%;
+  height: 100%;
+  display: grid;
+  grid-template-comlumns: auto auto auto auto;
+  border: 1px solid;
 `

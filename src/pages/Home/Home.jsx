@@ -2,14 +2,11 @@ import "./Home.css";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import { StyledCards } from "../../components/Styled";
+import { SHSelect, StyledCards } from "../../components/Styled";
 import { useGlobalContext } from "../../context";
 import HCards from "../HCard/HCards";
 
 export default function Home() {
-  const navigate = useNavigate();
-  // const { addBasket } = useGlobalContext()
-
   return (
     <>
       <Header />
@@ -17,18 +14,13 @@ export default function Home() {
         <section className="mainCategoriya">
           <p className="mainCp">Category</p>
           <ul className="mainCUl">
-            <li className="mainCUlLi">
-              <button className="mainCUlLiBtn">men's clothing</button>
-            </li>
-            <li className="mainCUlLi">
-              <button className="mainCUlLiBtn">jewelery</button>
-            </li>
-            <li className="mainCUlLi">
-              <button className="mainCUlLiBtn">electronics</button>
-            </li>
-            <li className="mainCUlLi">
-              <button className="mainCUlLiBtn">women's clothing</button>
-            </li>
+            <SHSelect name="shop"className="SHSelect1" >
+              <option value="Category">Category</option>
+              <option value="men's clothing">men's clothing</option>
+              <option value="jewelery">jewelery</option>
+              <option value="electronics">electronics</option>
+              <option value="women's clothing">women's clothing</option>
+            </SHSelect>
           </ul>
         </section>
         <section className="mainItem">

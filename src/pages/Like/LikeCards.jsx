@@ -1,4 +1,3 @@
-import "./HCard.css";
 import {
   StyledCard,
   StyledCardBtn,
@@ -7,10 +6,8 @@ import {
   StyledCardPrice,
   StyledCardTitle,
 } from "../../components/Styled";
-import { useNavigate } from "react-router-dom";
-import { useGlobalContext } from "../../context";
-
-export default function HCard({
+import "../HCard/HCard.css";
+export default function LikeCards({
   id,
   image,
   title,
@@ -19,9 +16,6 @@ export default function HCard({
   amount,
   category,
 }) {
-  const navigate = useNavigate();
-  const { addBasket, FLikeI } = useGlobalContext();
-
   return (
     <>
       <StyledCard className="mainIPC">
@@ -34,24 +28,21 @@ export default function HCard({
             }
           ></i>
         </StyledCardImg>
-        <StyledCardTitle onClick={() => navigate(`/singleh/${id}`)}>
+        <StyledCardTitle onClick={() => navigate(`/singleh/:${id}`)}>
           {title}
         </StyledCardTitle>
         <StyledCardPrice
           className="mainIPCPrice"
-          onClick={() => navigate(`/singleh/${id}`)}
+          onClick={() => navigate(`/singleh/:${id}`)}
         >
           ${price}
         </StyledCardPrice>
 
         <StyledCardBtn
           className="mainIPCBtn"
-          onClick={() =>
-            addBasket(id, title, price, description, image, amount, category)
-          }
+          onClick={() =>addBasket(id, title, price, description, image, amount, category)}
         >
-          <i className="fa-solid fa-cart-shopping mainIPCBtnI"></i>
-          Buy
+          <i className="fa-solid fa-cart-shopping mainIPCBtnI"></i> Buy
         </StyledCardBtn>
       </StyledCard>
     </>

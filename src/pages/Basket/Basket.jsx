@@ -29,10 +29,11 @@ import {
 } from "../../components/Styled";
 import { Singleimgproba } from "../../components/export_img";
 import { useGlobalContext } from "../../context";
-import Basketc from './Basketc.jsx'
+import Basketc from "./Basketc.jsx";
+import Data from "../../components/Data.jsx";
 export default function Basket() {
-  const { basket } = useGlobalContext()
-  
+  const { basket, clearBasket, amount, total } = useGlobalContext();
+  // console.log(basket);
   return (
     <>
       <Header />
@@ -40,18 +41,20 @@ export default function Basket() {
         <BasketSH1>Basket</BasketSH1>
         <BasketSC>
           <BasketSCM>
-            {basket.map((item) => <Basketc key={ item.id } { ...item }/>)}
+            {basket.map(item => (
+              <Basketc key={item.id} {...item} />
+            ))}
           </BasketSCM>
           <BasketSCS>
             <BasketSCST1>Buyurtmangiz</BasketSCST1>
             <BasketSCST2>
-              <BasketSCST21>Mahsulotlar: ()</BasketSCST21>
+              <BasketSCST21>Mahsulotlar: ({amount})</BasketSCST21>
             </BasketSCST2>
             <BasketSCST3>
               <BasketSCST31>Jami:</BasketSCST31>
-              <BasketSCST32>109981 $</BasketSCST32>
+              <BasketSCST32>{basket.amount} $</BasketSCST32>
             </BasketSCST3>
-            <BasketSCCB >Clear Basket</BasketSCCB>
+            <BasketSCCB onClick={() => clearBasket()}>Clear Basket</BasketSCCB>
           </BasketSCS>
         </BasketSC>
       </BasketS>
