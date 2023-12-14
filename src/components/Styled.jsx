@@ -621,3 +621,192 @@ export const ProductSD = styled.div`
   display: grid;
   grid-template-columns: auto auto auto auto;
 `
+// Product Styled Components end
+
+
+
+
+
+
+
+
+
+
+// Basket Page Styled Components
+
+export const BasketS = styled.div`
+  margin-top: 50px;
+  width: 100%;
+  height: 100%;
+  // border: 1px solid;
+`
+export const BasketSH1 = styled.h1`
+  text-align: center;
+  font-size: 50px;
+  // border: 1px solid;
+`
+export const BasketSC = styled.div`
+  margin: 0 auto;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  // border: 1px solid;
+`
+export const BasketSCM = styled.div`
+  width: 70%;
+  height: 100%;
+  // border: 1px solid;
+`
+
+export const BasketSCMD =  styled.div`
+  margin-top: 50px;
+  padding: 20px;
+  display: flex;
+  width: 100%;
+  height: 220px;
+  border: 2px solid greenyellow;
+  border-radius: 15px;
+`
+export const BasketSCMDI = styled.img`
+  width: 180px;
+  height: 170px;
+  // border: 1px solid;
+`
+export const BasketSCMDT = styled.div`
+  margin-left: 50px;
+  width: 790px;
+  height: 100%;
+  // border: 1px solid;
+`
+export const BasketSCMDT1 = styled.div`
+  display: flex;
+  width: 100%;
+  height: 40%;
+  // border: 1px solid;
+`
+export const BasketSCMDT2 = styled.div`
+  display: flex;
+  // align-items: center;
+  margin-top: 10px;
+  width: 100%;
+  height: 55%;
+  // border: 1px solid;
+`
+export const BasketSCMDT1T = styled.h2`
+  font-size: 20px;
+  max-width: 700px;
+  width: 700px;
+  height: 100%;
+  // border: 1px solid;
+`
+export const BasketTrashIcon = styled.button`
+  width: 90px;
+  font-size: 40px;
+  border: none;
+  outline: none;
+  background-color: white;
+`
+
+export const BasketSCMDT2C = styled.p`
+  margin-top: 25px;
+  font-weight: bold;
+  max-width: 285px;
+  width: 285px;
+  height: 30px;
+  font-size: 20px;
+  // border: 1px solid;
+`
+export const BasketSCMDT2A = styled.div`
+  margin-top: 17px;
+  margin-left: 150px;
+  display: flex;
+  width: 200px;
+  height: 60px;
+  border-radius: 10px;
+`
+export const BasketSCMDT2A1 = styled.button`
+  width: 60px;
+  height: 100%;
+  font-size: 35px;
+  border: none;
+  border-radius: 10px;
+  background-color: white ;
+  color: rgb(174, 174, 174);
+`
+export const BasketSCMDT2A2 = styled.p`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  width: 78px;
+  height: 100%;
+`
+export const BasketSCMDT2A3 = styled.button`
+  width: 60px;
+  height: 100%;
+  font-size: 35px;
+  border: none;
+  border-radius: 10px;
+  background-color: white ;
+  color: rgb(174, 174, 174);
+`
+
+export const BasketSCMDT2Pr = styled.p`
+  margin-left: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  width: 100px;
+  height:100%;
+  // border: 1px solid;
+`
+
+
+export const BasketSCS = styled.div`
+  padding: 15px;
+  margin-left: 99px;
+  margin-top: 50px;
+  width: 360px;
+  height: 262px;
+  border: 1px solid rgb(174, 174, 174);
+  border-radius: 10px;
+`
+export const BasketSCST1 = styled.p`
+  // border: 1px solid;
+  font-size: 25px;
+  font-weight: bold;
+`
+export const BasketSCST2 = styled.div`
+  display: flex;
+  // border: 1px solid;
+  width: 100%;
+  height: 30px;
+`
+export const BasketSCST21 = styled.p`
+  width:50%;
+  height: 100%;
+  font-size: 20px;
+  color: rgb(48, 48, 48);
+  // border: 1px solid; 
+`
+export const BasketSCST3 = styled.div`
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  // border: 1px solid;
+  width: 100%;
+  height: 40px;
+`
+export const BasketSCST31 = styled.p`
+  margin-top: 10px;
+  font-size: 23px;
+`
+export const BasketSCST32 = styled.p`
+  margin-top: 17px;
+  margin-left: 169px;
+  font-weight: bold;
+  font-size: 23px;
+  // border: 1px solid;
+`

@@ -2,7 +2,7 @@ import { useEffect, useReducer, useState } from "react";
 import { createContext, useContext } from "react";
 import reducer from "./reducer";
 import { uid } from "uid";
-import { getBasket, getProducts, getUser } from "./utils";
+import { getBasket, getDproducts, getProducts, getUser } from "./utils";
 import Loading from "./pages/Loading/Loading.jsx";
 import { useNavigate } from "react-router-dom";
 import Data from './components/Data.jsx'
@@ -21,7 +21,7 @@ const AppProvider = ({ children }) => {
   const navigate = useNavigate();
   const [state, dispatch] = useReducer(reducer, initialState)
   // console.log(Data);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const [title, setTitle] = useState("");
 
@@ -40,37 +40,18 @@ const AppProvider = ({ children }) => {
   const [user, setUser] = useState(getUser("user"));
 
   const [products, setProducts] = useState(getProducts("products"));
-
+  // const [dproducts, setDproducts] = useState("");
   const [basket, setBasket] = useState(getBasket("basket"))
-
+  
   const [data, setData] = useState(null);
-
+  
   const [error, setError] = useState(null);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("https://fakestoreapi.com/products");
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
+  
   const login = () => {
     const newUser = { id: id, name: name, psw: password, email: email };
     setUser(newUser);
     navigate("/");
   };
-
   const addProduct = () => {
     const newProduct = {
       id: id,
@@ -81,7 +62,7 @@ const AppProvider = ({ children }) => {
     };
     setProducts([...products, newProduct]);
   };
-  const addBasket = () => {
+  const addBasket = (id, title, price, description, image) => {
     const newBasketItem = {
       id: id,
       title: title,
@@ -91,12 +72,15 @@ const AppProvider = ({ children }) => {
     };
     setBasket([...basket, newBasketItem]);
   };
-
+  
+  // setProducts(Data)
   useEffect(() => {
+    // setDproducts(Data)
     localStorage.setItem("user", JSON.stringify(user));
     localStorage.setItem("basket", JSON.stringify(basket))
     localStorage.setItem("products", JSON.stringify(products));
-  }, [user, products]);
+    // localStorage.setItem("dproducts", JSON.stringify(dproducts));
+  }, [user, products, basket]);
 
   if (loading) {
     return <Loading />;

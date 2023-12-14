@@ -41,7 +41,7 @@ export default function Single() {
             <SSingleCOTPice>${price}</SSingleCOTPice>
             <SSingleCOTB>
               <SSDingleCOTBtn1 onClick={
-                () =>  addBasket()
+                () =>  addBasket(id, title, price, description, image)
               }>
                 {" "}
                 <i className="fa-solid fa-cart-shopping mainIPCBtnI"></i>Buy

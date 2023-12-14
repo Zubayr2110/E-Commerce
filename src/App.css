@@ -1,16 +1,16 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 ::-webkit-scrollbar {
-    width: 5px;
-    background: rgb(31, 51, 66);
+  width: 5px;
+  background: rgb(31, 51, 66);
 }
 ::-webkit-scrollbar-thumb {
-    background: cyan; 
-    border-radius: 10px;
-  }
+  background: cyan;
+  border-radius: 10px;
+}
