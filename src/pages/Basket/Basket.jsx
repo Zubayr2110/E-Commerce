@@ -5,18 +5,6 @@ import {
   BasketSC,
   BasketSCCB,
   BasketSCM,
-  BasketSCMD,
-  BasketSCMDI,
-  BasketSCMDT,
-  BasketSCMDT1,
-  BasketSCMDT1T,
-  BasketSCMDT2,
-  BasketSCMDT2A,
-  BasketSCMDT2A1,
-  BasketSCMDT2A2,
-  BasketSCMDT2A3,
-  BasketSCMDT2C,
-  BasketSCMDT2Pr,
   BasketSCS,
   BasketSCST1,
   BasketSCST2,
@@ -30,10 +18,12 @@ import {
 import { Singleimgproba } from "../../components/export_img";
 import { useGlobalContext } from "../../context";
 import Basketc from "./Basketc.jsx";
-import Data from "../../components/Data.jsx";
 export default function Basket() {
-  const { basket, clearBasket, amount, total } = useGlobalContext();
-  // console.log(basket);
+  const { basket, clearBasket, data, totalp } = useGlobalContext();
+  let numberP = 0,
+    priceP = 0;
+  const NumberPF = basket.map((item) => numberP += item.amount);
+  const PricePF = basket.map((item) => priceP += item.price);
   return (
     <>
       <Header />
@@ -41,18 +31,21 @@ export default function Basket() {
         <BasketSH1>Basket</BasketSH1>
         <BasketSC>
           <BasketSCM>
-            {basket.map(item => (
+            {basket.map((item) => (
               <Basketc key={item.id} {...item} />
             ))}
+            {/* {data.map((item) => (
+              <Basketc key={item.id} {...item} />
+            ))} */}
           </BasketSCM>
           <BasketSCS>
             <BasketSCST1>Buyurtmangiz</BasketSCST1>
             <BasketSCST2>
-              <BasketSCST21>Mahsulotlar: ({amount})</BasketSCST21>
+              <BasketSCST21>Mahsulotlar: ({numberP})</BasketSCST21>
             </BasketSCST2>
             <BasketSCST3>
               <BasketSCST31>Jami:</BasketSCST31>
-              <BasketSCST32>{basket.amount} $</BasketSCST32>
+              <BasketSCST32>{priceP}$</BasketSCST32>
             </BasketSCST3>
             <BasketSCCB onClick={() => clearBasket()}>Clear Basket</BasketSCCB>
           </BasketSCS>

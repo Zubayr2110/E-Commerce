@@ -30,7 +30,7 @@ export default function HCard({
           <i
             className="fa-solid fa-heart mainIPCIH"
             onClick={() =>
-              FLikeI(id, image, title, price, description, amount, category)
+              FLikeI(id, title, price, description, image, amount, category)
             }
           ></i>
         </StyledCardImg>

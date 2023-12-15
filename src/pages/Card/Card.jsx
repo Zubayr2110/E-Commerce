@@ -10,9 +10,9 @@ import {
 import "./Card.css";
 import { useGlobalContext } from "../../context";
 
-export default function Card({ id, image, title, price }) {
+export default function Card({ id, title, price, description, image, amount, category}) {
   const navigate = useNavigate();
-  const { addBasket } = useGlobalContext()
+  const { addBasket, FLikeI } = useGlobalContext()
 
   return (
     <StyledCard className="mainIPC" >
@@ -22,7 +22,7 @@ export default function Card({ id, image, title, price }) {
           width={200}
           alt="img"
         />
-        <i className="fa-solid fa-heart mainIPCIH"></i>
+        <i className="fa-solid fa-heart mainIPCIH" onClick={() => FLikeI(id, title, price, description, image, amount, category) }></i>
       </StyledCardImg>
       <StyledCardTitle onClick={() => navigate(`/single/${id}`)}>
         {title}
@@ -34,7 +34,7 @@ export default function Card({ id, image, title, price }) {
         ${price}
       </StyledCardPrice>
 
-      <StyledCardBtn className="mainIPCBtn" onClick={() => addBasket(id)}>
+      <StyledCardBtn className="mainIPCBtn" onClick={() => addBasket(id, title, price, description, image, amount, category)}>
         <i className="fa-solid fa-cart-shopping mainIPCBtnI"></i> Buy
       </StyledCardBtn>
     </StyledCard>

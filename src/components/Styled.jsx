@@ -548,7 +548,7 @@ export const AddPSCD = styled.form`
   margin: 0 auto;
   margin-top: 50px;
   width: 500px;
-  height: 650px;
+  height: 850px;
   border: 2px solid green;
   border-radius: 20px;
   box-shadow: 1px 1px 10px 1px greenyellow;
@@ -638,6 +638,7 @@ export const BasketS = styled.div`
   margin-top: 50px;
   width: 100%;
   height: 100%;
+  margin-bottom: 100px;
   // border: 1px solid;
 `
 export const BasketSH1 = styled.h1`
@@ -840,7 +841,15 @@ export const SHSelect = styled.select`
   background: cyan;
   border-radius: 10px;
 `
-
+export const SHSelect1 = styled.select`
+  width:100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 30px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+`
 
 
 
@@ -858,9 +867,9 @@ export const LikeSC = styled.div`
   justify-content: center;
 `
 export const LikeSCM = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto auto;
   width: 80%;
   height: 100%;
-  display: grid;
-  grid-template-comlumns: auto auto auto auto;
-  border: 1px solid;
+  // border: 1px solid;
 `

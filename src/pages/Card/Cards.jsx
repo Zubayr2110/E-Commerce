@@ -2,7 +2,7 @@ import { useGlobalContext } from "../../context";
 import Card from "./Card";
 
 export default function Cards() {
-  const { products } = useGlobalContext()
+  const { products } = useGlobalContext();
   return (
     <>
       {products.map((item) => (

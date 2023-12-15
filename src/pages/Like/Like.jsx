@@ -10,7 +10,7 @@ export default function Like() {
     <>
       <Header />
       <LikeSC>
-        <LikeSCM>
+        <LikeSCM >
           {likeF.map((item) => (
             <LikeCards key={item.id} {...item} />
           ))}

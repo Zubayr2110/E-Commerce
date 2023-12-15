@@ -3,7 +3,11 @@ import HCard from "./HCard";
 
 export default function HCards() {
   const { data } = useGlobalContext();
-  // console.log(data);
+
+  if (!data) {
+    console.log(data);
+    return <p>Loading...</p>;
+  }
   return (
     <>
       {data.map((item) => (

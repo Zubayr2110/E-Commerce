@@ -2,7 +2,7 @@ import { useEffect, useReducer, useState } from "react";
 import { createContext, useContext } from "react";
 import reducer from "./reducer";
 import { uid } from "uid";
-import { getBasket, getLikeL, getProducts, getUser } from "./utils";
+import { RemoveLocal, getBasket, getLikeL, getProducts, getUser } from "./utils";
 import Loading from "./pages/Loading/Loading.jsx";
 import { useNavigate } from "react-router-dom";
 import Data from "./components/Data.jsx";
@@ -24,12 +24,9 @@ const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const clearBasket = () => {
-    if(getBasket !== " ") {
       dispatch({ type: "CLEAR" })
-      localStorage.clear()
-      location.reload()
-    }
-    
+      RemoveLocal("basket")
+      location.reload()    
   }
   const addB = (id) => {
     dispatch( { type: "INC", payload: id } )
@@ -43,7 +40,9 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     dispatch({ type: "TOTAL" })
   }, [])
-
+  const totalp = () => {
+    dispatch({ type: "TOTAL" })
+  }
 
   const [loading, setLoading] = useState(false);
 
@@ -63,14 +62,14 @@ const AppProvider = ({ children }) => {
   const [user, setUser] = useState(getUser("user"));
 
   const [products, setProducts] = useState(getProducts("products"));
-  // const [dproducts, setDproducts] = useState("");
   const [basket, setBasket] = useState(getBasket("basket"));
 
 
   const [data, setData] = useState(null);
 
   const [error, setError] = useState(null);
-
+  const [amountp, setAmountp] = useState("")
+  const [categoryp, setCategoryp] = useState("")
   const login = () => {
     const newUser = { id: id, name: name, psw: password, email: email };
     setUser(newUser);
@@ -79,10 +78,12 @@ const AppProvider = ({ children }) => {
   const addProduct = () => {
     const newProduct = {
       id: id,
-      image: image,
       title: title,
       price: price,
       description: description,
+      image: image,
+      amount: amountp,
+      category: categoryp,
     };
     setProducts([...products, newProduct]);
   };
@@ -97,7 +98,6 @@ const AppProvider = ({ children }) => {
       category: category,
     };
     setBasket([...basket, newBasketItem]);
-    alert("the product has been added to the cart")
   };
 
 
@@ -115,9 +115,7 @@ const AppProvider = ({ children }) => {
     setLikeF([...likeF, newLP])
   }
 
-  // setProducts(Data)
   useEffect(() => {
-    // setDproducts(Data)
     localStorage.setItem("user", JSON.stringify(user));
     localStorage.setItem("basket", JSON.stringify(basket));
     localStorage.setItem("products", JSON.stringify(products));
@@ -136,6 +134,7 @@ const AppProvider = ({ children }) => {
         remB,
         addB,
         decB,
+        totalp,
 
         login,
         name,
@@ -160,6 +159,10 @@ const AppProvider = ({ children }) => {
         basket,
         FLikeI,
         likeF,
+        categoryp, 
+        setCategoryp,
+        amountp,
+        setAmountp
       }}
     >
       {children}

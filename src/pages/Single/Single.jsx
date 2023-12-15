@@ -15,17 +15,14 @@ import {
 import { useGlobalContext } from "../../context";
 
 export default function Single() {
-  const { products, addBasket } = useGlobalContext();
+  const { products, addBasket, FLikeI } = useGlobalContext();
   const BasketBTNClick = () => {
     alert("Add Product To Basket");
   };
-  const LikeBTNClick = () => {
-    alert("Add Product To Like");
-  };
-
   const { id } = useParams();
   const singleProduct = products.find((item) => item.id === id);
-  const { image, title, description, price } = singleProduct;
+  const { image, title, description, price, category } = singleProduct;
+
 
   return (
     <>
@@ -46,7 +43,7 @@ export default function Single() {
                 {" "}
                 <i className="fa-solid fa-cart-shopping mainIPCBtnI"></i>Buy
               </SSDingleCOTBtn1>
-              <SSDingleCOTBtn2 onClick={LikeBTNClick}>
+              <SSDingleCOTBtn2 onClick={() => FLikeI(id, title, price, description, image, category)}>
                 <i className="fa-solid fa-heart mainIPCIH"></i> Like
               </SSDingleCOTBtn2>
             </SSingleCOTB>

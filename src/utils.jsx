@@ -10,3 +10,6 @@ export const getLikeL = () => {
 export const getBasket = () => {
     return localStorage.getItem("basket") ? JSON.parse(localStorage.getItem("basket")) : []
 }
+export const RemoveLocal = (key) => {
+    return localStorage.removeItem(`${key}`)
+}

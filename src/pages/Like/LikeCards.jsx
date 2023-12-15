@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   StyledCard,
   StyledCardBtn,
@@ -6,7 +7,7 @@ import {
   StyledCardPrice,
   StyledCardTitle,
 } from "../../components/Styled";
-import "../HCard/HCard.css";
+import "./Like.css";
 export default function LikeCards({
   id,
   image,
@@ -16,33 +17,33 @@ export default function LikeCards({
   amount,
   category,
 }) {
+  const navigate = useNavigate()
   return (
     <>
       <StyledCard className="mainIPC">
         <StyledCardImg className="mainIPCI">
           <StyledCardImg1 src={image} width={200} alt="img" />
           <i
-            className="fa-solid fa-heart mainIPCIH"
-            onClick={() =>
-              FLikeI(id, image, title, price, description, amount, category)
-            }
-          ></i>
+            className="fa-solid fa-heart mainIPCIH"></i>
         </StyledCardImg>
-        <StyledCardTitle onClick={() => navigate(`/singleh/:${id}`)}>
+        <StyledCardTitle onClick={() => navigate(`/single/${id}`)}>
           {title}
         </StyledCardTitle>
         <StyledCardPrice
           className="mainIPCPrice"
-          onClick={() => navigate(`/singleh/:${id}`)}
+          onClick={() => navigate(`/single/${id}`)}
         >
           ${price}
         </StyledCardPrice>
 
         <StyledCardBtn
           className="mainIPCBtn"
-          onClick={() =>addBasket(id, title, price, description, image, amount, category)}
+          onClick={() =>
+            addBasket(id, title, price, description, image, amount, category)
+          }
         >
-          <i className="fa-solid fa-cart-shopping mainIPCBtnI"></i> Buy
+          <i className="fa-solid fa-cart-shopping mainIPCBtnI"></i>
+          Buy
         </StyledCardBtn>
       </StyledCard>
     </>
